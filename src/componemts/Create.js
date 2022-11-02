@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import axios from 'axios'
+import {useNavigate} from "react-router-dom"
 
 function Create() {
     const[fName,setFName]=useState()
@@ -9,6 +10,7 @@ function Create() {
     
     let url = "https://6362424b7521369cd068e00e.mockapi.io/ToDoList"
 
+    let navigate = useNavigate();
     const postData=()=>{
         axios.post(url,{
             fName,
@@ -18,13 +20,12 @@ function Create() {
         }).then(res =>{
             console.log(res)
         })
-
+        navigate('/GitCreate');
     }
   return (
     <div>
 
-        <input placeholder='FName' onChange={e=>{setFName(e.target.value) }}></input>
-        <input placeholder='LName' onChange={e=>{setLName(e.target.value) }}></input>
+
         <input placeholder='Email' onChange={e=>{setEmail(e.target.value) }}></input>
         <input placeholder='password' onChange={e=>{setPass(e.target.value) }}></input>
         <button onClick={postData}>LogIn</button>
