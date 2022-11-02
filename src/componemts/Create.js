@@ -3,8 +3,6 @@ import axios from 'axios'
 import {useNavigate} from "react-router-dom"
 
 function Create() {
-    const[fName,setFName]=useState()
-    const[lName,setLName]=useState()
     const[email,setEmail]=useState()
     const[pass,setPass]=useState()
     
@@ -13,12 +11,12 @@ function Create() {
     let navigate = useNavigate();
     const postData=()=>{
         axios.post(url,{
-            fName,
-            lName,
             email,pass
 
         }).then(res =>{
             console.log(res)
+            localStorage.setItem('email', email);
+            localStorage.setItem('password', pass);
         })
         navigate('/GitCreate');
     }

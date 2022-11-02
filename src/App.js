@@ -11,8 +11,8 @@ function App() {
 
   return (
     <>
-    <Router1/>
     <Nav/>
+    <Router1/>
 {/* <Create></Create>
 <GitCreate></GitCreate> */}
 

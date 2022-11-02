@@ -7,9 +7,9 @@ function GitCreate() {
   const [state, setState] = useState([])
 
   useEffect(()=> {
-    axios.get("https://rickandmortyapi.com/api/character").then((res) =>{
-      console.log(res.data);
-      setState(res.data.results);
+    axios.get("https://mcuapi.herokuapp.com/api/v1/movies?page=1&limit=10&columns=title%2Crelease_date%2Ccover_url&order=chronology%2CDESC&filter=title%3DIron").then((res) =>{
+      console.log(res.data.data);
+      setState(res.data.data);
       
     })
   },[])
@@ -20,9 +20,9 @@ return (
           {state.map(items=>{
             return(
               <>
-              <p>name:{items.name}</p>
+              <p>name:{items.title}</p>
 
-              <img src={items.image}></img>
+              <img src={items.cover_url}></img>
               </>
               
             )
