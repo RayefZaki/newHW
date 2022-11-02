@@ -1,0 +1,5 @@
+.App{
+    display: grid;
+    grid-template-columns: repeat(3,2fr);
+    background-color: gray;
+}
